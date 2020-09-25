@@ -262,6 +262,7 @@ class FilterSidebar extends React.Component {
           label={intl.formatMessage({id: 'Search.Sidebar.Country'})}
           value={countryFilter}
           name="countryFilter"
+          data-test-id='country-filter'
           onChange={this.onChangeFilter('countryFilter')}>
           {countryOptions.map((v, idx) => {
             return (
@@ -275,6 +276,7 @@ class FilterSidebar extends React.Component {
           value={asnFilter}
           error={asnError}
           name="asnFilter"
+          data-test-id='asn-filter'
           onChange={this.onChangeFilter('asnFilter')}
           placeholder={intl.formatMessage({id: 'Search.Sidebar.ASN.example'})}
         />
@@ -291,6 +293,7 @@ class FilterSidebar extends React.Component {
               utc={true}
               timeFormat={false}
               isValidDate={this.isSinceValid}
+              inputProps={{id: 'since-filter'}}
             />
           </Box>
           <Box width={1/2} pl={1}>
@@ -304,6 +307,7 @@ class FilterSidebar extends React.Component {
               utc={true}
               timeFormat={false}
               isValidDate={this.isUntilValid}
+              inputProps={{id: 'until-filter'}}
             />
           </Box>
         </Flex>
@@ -312,6 +316,7 @@ class FilterSidebar extends React.Component {
           pt={2}
           label={intl.formatMessage({id: 'Search.Sidebar.TestName'})}
           name='testNameFilter'
+          data-test-id='testname-filter'
           value={testNameFilter}
           onChange={this.onChangeFilter('testNameFilter')}>
           {testNameOptions.map((v, idx) => {
@@ -325,7 +330,8 @@ class FilterSidebar extends React.Component {
           showDomain &&
           <InputWithLabel
             label={intl.formatMessage({id: 'Search.Sidebar.Domain'})}
-            name="domainFilter"
+            name='domainFilter'
+            data-test-id='domain-filter'
             value={domainFilter}
             error={domainError}
             onChange={this.onChangeFilter('domainFilter')}
